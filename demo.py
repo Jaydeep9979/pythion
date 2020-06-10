@@ -1,7 +1,7 @@
 import sys
 sys.stdout = open('output.txt', 'w')
 sys.stdin = open('input.txt', 'r')
-
+fvtbv
 
 for testcase in range(int(input())):
     arr = list(map(int, input().split()))
