@@ -5,7 +5,7 @@ sys.stdin = open('input.txt', 'r')
 import math
 for testcase in range(int(input())):
     arr=list(map(int,input().split()))
-    x=0
+    xor=0
     for i in arr:
-        x^=i
-    print(x)
+        xor^=i
+    print(xor)
