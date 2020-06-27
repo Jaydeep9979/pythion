@@ -9,3 +9,4 @@ for testcase in range(int(input())):
     for i in arr:
         xor^=i
     print(xor)
+
