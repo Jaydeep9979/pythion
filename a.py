@@ -1,18 +1,14 @@
 class Solution:
-    def longestPalindromeSubseq(self, s1: str) -> int:
-        
-        s2=s1[::-1]
-        if s1==s2:
-            return len(s1)
-
-        dp=[[0 for i in range(len(s1)+1)] for j in range(len(s1)+1)]
-        for i in range(1,len(s1)+1):
-            for j in range(1,len(s1)+1):
-                if s1[i-1]==s2[j-1]:
-                    dp[i][j]=dp[i-1][j-1]+1
+    def findTargetSumWays(self, arr: List[int], diff: int) -> int:
+        target=(sum(arr)-diff)//2
+        dp=[[1 for i in range(target+1)] for j in range(len(arr)+1)]
+        for i in range(1,target+1):
+            dp[0][i]=0
+        for i in range(1,len(arr)+1):
+            for j in range(1,target+1):
+                if arr[i-1]>j:
+                    dp[i][j]=dp[i-1][j]
                 else:
-                    dp[i][j]=max(dp[i-1][j],dp[i][j-1])
-        return dp[-1]
-                
-
-                
+                    dp[i][j]=dp[i-1][j]+dp[i-1][j-arr[i-1]]
+        return dp[-1][-1]
+        
