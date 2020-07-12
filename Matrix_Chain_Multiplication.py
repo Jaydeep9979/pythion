@@ -31,8 +31,7 @@ for testcase in range(int(input())):
         dp[i][j]=mn
         return mn
     x=solve(1,len(arr)-1)
-    print(x)    
-
+    
 
 
 
