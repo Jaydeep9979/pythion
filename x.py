@@ -8,7 +8,9 @@ while arr:
 			count+=arr
 			arr.pop()
 			break
-	else:
+	else:	
+
+		
 			if ind==0:
 					count+=(target*arr[1])
 					arr.pop(1)
@@ -20,4 +22,4 @@ while arr:
 							arr.pop(ind-1)
 					else:
 							arr.pop(ind+1)
-print(count,end="")  
+print(count,end="")
