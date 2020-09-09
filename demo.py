@@ -1,33 +1,42 @@
-import math,bisect,heapq,collections,itertools,datetime,functools,sys,os
+import math,sys,os,collections,functools,itertools,string
 if(os.path.exists('input.txt')):
 	sys.stdin=open('input.txt','r')
 	sys.stdout=open('output.txt','w')
-
 for testcase in range(int(input())):
-	arr=list(map(int,input().split()))
-	n=len(arr)
-	flag=1
-	for i in range(n-1,0,-1):
-		if arr[i-1]<arr[i]:
-			ind=i-1
-			flag=0
-			break
-	if flag:
-		arr.sort()
-		print(arr)
-	else:
-		for i in range(len(arr)-1,ind,-1):
-			if arr[ind]<arr[i]:
-				arr[ind],arr[i]=arr[i],arr[ind]
-				break
-		print(arr)
-		ind+=1
-		n-=1
-		while ind<n:
-			arr[ind],arr[n]=arr[n],arr[ind]
-			ind+=1
-			n-=1
-		print(arr)
-			
+	arr=[]
+	if len(arr)==1:
+		print(0)
 
 	
+
+	row,col=len(arr),len(arr[0])
+	def dfs(arr,i,j):
+		if 0<=i<row and 0<=j<col and arr[i][j]==0:
+			arr[i][j]=-1
+			dfs(arr,i,j+1)
+			dfs(arr,i+1,j)
+			dfs(arr,i,j-1)
+			dfs(arr,i-1,j)
+		
+	for i in range(row):
+		for j in range(col):
+			if (i==0 or j==0 or i==(row-1) or j==(col-1)) and arr[i][j]==0:
+				dfs(arr,i,j)
+	count=0
+	for i in range(row):
+		for j in range(col):
+			if arr[i][j]==0:
+				dfs(arr,i,j)
+				count+=1
+	print(count)	
+
+
+
+	
+		
+
+
+	
+
+		
+
