@@ -2,8 +2,6 @@ class Solution:
     def closedIsland(self, arr: List[List[int]]) -> int:
     	if len(arr)==1:
 		return 0
-	
-
         row,col=len(arr),len(arr[0])
         def dfs(arr,i,j):
             if 0<=i<row and 0<=j<col and arr[i][j]==0:

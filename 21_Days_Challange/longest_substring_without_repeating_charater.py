@@ -6,6 +6,8 @@ s=input()
 seen={}
 l=0
 ans=0
+arr=[1,2,3]
+print(arr[0:0])
 for i in range(len(s)):
 	if s[i] in seen and seen[s[i]]>=l:
 		l=seen[s[i]]+1
