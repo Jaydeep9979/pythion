@@ -4,6 +4,7 @@ class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
         if not root:
             return []
+            
         def dfs(node,count,arr):
             arr.append(node.val)
             count+=node.val

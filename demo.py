@@ -3,23 +3,20 @@ if(os.path.exists('input.txt')):
 	sys.stdin=open('input.txt','r')
 	sys.stdout=open('output.txt','w')
 for testcase in range(int(input())):
-	arr=list(map(int,input().split()))
-	low=0;mid=0;high=len(arr)-1
-	while mid<=high:
-		if arr[mid]>1:
-			print(f'first {arr[mid],arr[high]}')
-			arr[mid],arr[high]=arr[high],arr[mid]
-			high-=1
-		elif arr[mid]<1:
-			print(f'second {arr[mid],arr[low]}')
-			arr[mid],arr[low]=arr[low],arr[mid]
-			low+=1
-			mid+=1
-		else:
-			mid+=1
-		print(arr)
-
-	print(arr)
+	coin=[1,2,5]
+	total=7
+	dp=[0 for i in range(total+1)]
+	for i in range(1,total+1):
+		dp[i]=float('inf')
+	for i in range(1,(len(coin)+1)):
+		for j in range(coin[i-1],total+1):
+				#print(1+dp[i-1][j-coin[i-1]],dp[i-1][j],end=' ')
+				dp[j]=min(1+dp[j-coin[i-1]],dp[j])
+		print(dp)
+		
+	for i in dp:
+		print(i,end=' ')
+	print(dp[-1][-1])
 
 
 
