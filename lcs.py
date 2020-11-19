@@ -44,6 +44,4 @@ for testcase in range(int(input())):
     while j>0:
         s+=s2[j-1]
         j-=1
-    
-    
     print(s[::-1])

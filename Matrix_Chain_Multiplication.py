@@ -24,7 +24,7 @@ for testcase in range(int(input())):
             else:
                 t2=solve(k+1,j)
 
-
+    
             ans=t1+t2+arr[i-1]*arr[k]*arr[j]
             mn=min(mn,ans)
         
